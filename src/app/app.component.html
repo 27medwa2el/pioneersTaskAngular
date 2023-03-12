@@ -1,0 +1,42 @@
+
+    <dx-tab-panel>
+      <dxi-item title="Add your country">
+        <dx-form>
+          <dxi-item itemType="group">
+            <div class="dx-field">
+              <dx-lookup  [dataSource]="countriesModel" [valueExpr]="'id'" [displayExpr]="'name'" (onValueChanged)="onCountryChanged($event)">
+                <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+              </dx-lookup>
+            </div>
+          </dxi-item>
+        </dx-form>
+        <dx-button text="Next" (onClick)="next()"></dx-button>
+      </dxi-item>
+      <dxi-item title="Add City" >
+        <dx-form>
+          <dxi-item itemType="group" >
+            <div class="dx-field">
+              <dx-lookup  [dataSource]="citiesModel" [valueExpr]="'id'" [displayExpr]="'name'" (onValueChanged)="onCityChanged($event)">
+                <dxo-drop-down-options [showTitle]="false"></dxo-drop-down-options>
+              </dx-lookup>
+            </div>
+          </dxi-item>
+        </dx-form>
+        <dx-button text="Next" (onClick)="next()"></dx-button>
+      </dxi-item>
+      <dxi-item title="Add customer info">
+        <dx-form #myForm [formData]="customerData">
+          <dxi-item itemType="group" >
+            <dxi-item itemType="group" caption="Customer Info">
+              <dxi-item dataField="Name"></dxi-item>
+              <dxi-item dataField="PhoneNumber"></dxi-item>
+              <dxi-item dataField="Address"></dxi-item>
+            </dxi-item>
+          </dxi-item>
+        </dx-form>
+        <dx-button text="Confirm" (onClick)="confirm(); "></dx-button>
+      </dxi-item>
+      
+    </dx-tab-panel>
+   
+    
