@@ -1,0 +1,30 @@
+<dx-load-panel
+  #loadPanel
+  shadingColor="rgba(0,0,0,0.4)"
+  [(visible)]="loadingVisible"
+  [showIndicator]="true"
+  [showPane]="true"
+  [shading]="true"
+  [hideOnOutsideClick]="false"
+  (onShown)="onShown()"
+  (onHidden)="onHidden()"
+>
+</dx-load-panel>
+<dx-button (onClick)="AddCustomer();">Add a new customer</dx-button>
+<dx-data-grid [dataSource]="customers" [showBorders]="true"  (onRowRemoving)="onDeleteRow($event)" (onRowUpdated)="saveChanges($event)">
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-sorting [mode]="'multiple'"></dxo-sorting>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxi-column dataField="name" caption="Name"></dxi-column>
+    <dxi-column dataField="address" caption="Address"></dxi-column>
+    <dxi-column dataField="phoneNumber" caption="Phone"></dxi-column>
+    <dxi-column dataField="countryName" caption="Country"></dxi-column>
+    <dxi-column dataField="cityName" caption="City"></dxi-column>
+    <dxo-editing
+    
+    mode="form"
+    [allowUpdating]="true"
+    [allowDeleting]="true">
+    
+</dxo-editing>
+</dx-data-grid>

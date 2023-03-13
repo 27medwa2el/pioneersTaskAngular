@@ -4,18 +4,18 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { CountryModel } from 'src/app/Models/country';
 import { CountryService } from 'src/app/Services/country.service';
 import { CityModel } from 'src/app/Models/city';
-import { Customer } from './Models/customer';
-import { CustomerService } from './Services/customer.service';
+import { Customer } from 'src/app/Models/customer';
+import { CustomerService } from 'src/app/Services/customer.service';
 import { alert } from 'devextreme/ui/dialog';
 import { Router } from '@angular/router';
-
+import{DataService}from 'src/app/Services/data.service'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-customer-add',
+  templateUrl: './customer-add.component.html',
+  styleUrls: ['./customer-add.component.css']
 })
-export class AppComponent {
+export class CustomerAddComponent {
   title = 'Pioneer Task';
   constructor(private countryService: CountryService,private customerService : CustomerService,private router: Router) {}
   @ViewChild(DxTabPanelComponent, { static: false }) tabPanel: DxTabPanelComponent|undefined = undefined;
@@ -85,7 +85,9 @@ export class AppComponent {
       alert("Failed","Stautus");
     });
     console.log("in the routing");
-    this.router.navigate(['/component2']);
+    setTimeout(() => {
+      this.router.navigate(['/customerslist']);
+    }, 3000);
    
   }
 }
